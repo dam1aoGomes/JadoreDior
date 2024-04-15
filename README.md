@@ -1,25 +1,30 @@
-# :checkered_flag: NOME DO PROJETO
+# :checkered_flag: J’adore
 
-Breve descrição do que o seu projeto faz.
+Um site destinado a ser vitrine e loja de perfumes franceses.
 
 ## :technologist: Membros da equipe
 
-Matrícula, nome e curso dos participantes.
+548316, Damião Gomes da Silva Neto, Ciência da Computação
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
-Informe aqui os tipos de usuário que irão interagir com a aplicação. Ex: administrador, locador, locatario, usuário não logado.
-
-> Tenha em mente que obrigatoriamente a aplicação deve possuir funcionalidades acessíveis a todos os tipos de usuário e outra funcionalidades restritas a certos tipos de usuários.
+- Usuário não registrado
+- Usuário registrado
+- Administrador
+- Suporte
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Liste as principais entidades do sistema.
+- Usuário
+- Perfume
+- Suporte
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
-Descreve ou liste brevemente as principais funcionalidades da aplicação que será desenvolvida. Destaque a funcionalidades que serão acessévies a todos os usuários e aquelas restriras a usuários logados.
-
+- Usuário não registrado pode ver perfumes e datalhes sobre o mesmo
+- Usuário registrado pode tirar duvidas com o suporte, ver comentarios, e adicionar produtos ao carrinho
+- Administrador pode remover, adicionar ou modificar perfumes
+- O suporte vai tirar as duvidas do usuário registrado
 
 ----
 
