@@ -5,6 +5,7 @@ Um site destinado a ser vitrine e loja de perfumes franceses.
 ## :technologist: Membros da equipe
 
 548316, Damião Gomes da Silva Neto, Ciência da Computação
+
 548317, Heric da Silva Cruz, Ciência da Computação
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
