@@ -19,7 +19,7 @@ Um site destinado a ser vitrine e loja de perfumes franceses.
 
 - Usuário
 - Perfume
-- Suporte
+- Comentários
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
