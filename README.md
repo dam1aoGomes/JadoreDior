@@ -13,7 +13,6 @@ Um site destinado a ser vitrine e loja de perfumes franceses.
 - Usuário não registrado
 - Usuário registrado
 - Administrador
-- Suporte
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
@@ -24,9 +23,8 @@ Um site destinado a ser vitrine e loja de perfumes franceses.
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
 - Usuário não registrado pode ver perfumes e datalhes sobre o mesmo
-- Usuário registrado pode tirar duvidas com o suporte, ver comentarios, e adicionar produtos ao carrinho
+- Usuário registrado pode fazer comentarios e adicionar produtos ao carrinho
 - Administrador pode remover, adicionar ou modificar perfumes
-- O suporte vai tirar as duvidas do usuário registrado
 
 ----
 
