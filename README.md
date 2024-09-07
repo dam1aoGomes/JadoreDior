@@ -53,7 +53,7 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 | --- | --- | --- | --- | --- |
 | Usuários   | X |  X  |  | X |
 | Perfumes   | X |    |  X | X |
-| Comentários| X |    |  |  |
+| Comentários| X |  X  |  |  |
 
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
 
