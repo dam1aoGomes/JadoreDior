@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comentarios",
+  "info": {
+    "singularName": "comentario",
+    "pluralName": "comentarios",
+    "displayName": "Comentarios",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "comentario": {
+      "type": "text",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 255
+    },
+    "id_comentario": {
+      "type": "uid"
+    },
+    "perfume": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::perfume.perfume"
+    },
+    "usuario": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::usuario.usuario"
+    }
+  }
+}

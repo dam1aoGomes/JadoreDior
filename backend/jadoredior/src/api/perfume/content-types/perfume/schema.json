@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perfumes",
+  "info": {
+    "singularName": "perfume",
+    "pluralName": "perfumes",
+    "displayName": "Perfumes",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "valor": {
+      "type": "float",
+      "required": true
+    },
+    "marca": {
+      "type": "string",
+      "required": true
+    },
+    "id_perfume": {
+      "type": "uid",
+      "required": true
+    },
+    "comentarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comentario.comentario"
+    }
+  }
+}
