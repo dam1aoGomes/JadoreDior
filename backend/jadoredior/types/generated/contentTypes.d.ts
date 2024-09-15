@@ -362,6 +362,87 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiComentarioComentario extends Schema.CollectionType {
+  collectionName: 'comentarios';
+  info: {
+    singularName: 'comentario';
+    pluralName: 'comentarios';
+    displayName: 'Comentarios';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    comentario: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 255;
+      }>;
+    id_comentario: Attribute.UID;
+    perfume: Attribute.Relation<
+      'api::comentario.comentario',
+      'oneToOne',
+      'api::perfume.perfume'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::comentario.comentario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::comentario.comentario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPerfumePerfume extends Schema.CollectionType {
+  collectionName: 'perfumes';
+  info: {
+    singularName: 'perfume';
+    pluralName: 'perfumes';
+    displayName: 'Perfumes';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nome: Attribute.String & Attribute.Required & Attribute.Unique;
+    valor: Attribute.Float & Attribute.Required;
+    marca: Attribute.String & Attribute.Required;
+    id_perfume: Attribute.UID & Attribute.Required;
+    comentarios: Attribute.Relation<
+      'api::perfume.perfume',
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::perfume.perfume',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::perfume.perfume',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -788,147 +869,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiComentarioComentario extends Schema.CollectionType {
-  collectionName: 'comentarios';
-  info: {
-    singularName: 'comentario';
-    pluralName: 'comentarios';
-    displayName: 'Comentarios';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    comentario: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-        maxLength: 255;
-      }>;
-    id_comentario: Attribute.UID;
-    perfume: Attribute.Relation<
-      'api::comentario.comentario',
-      'oneToOne',
-      'api::perfume.perfume'
-    >;
-    usuario: Attribute.Relation<
-      'api::comentario.comentario',
-      'oneToOne',
-      'api::usuario.usuario'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::comentario.comentario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::comentario.comentario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPerfumePerfume extends Schema.CollectionType {
-  collectionName: 'perfumes';
-  info: {
-    singularName: 'perfume';
-    pluralName: 'perfumes';
-    displayName: 'Perfumes';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nome: Attribute.String & Attribute.Required & Attribute.Unique;
-    valor: Attribute.Float & Attribute.Required;
-    marca: Attribute.String & Attribute.Required;
-    id_perfume: Attribute.UID & Attribute.Required;
-    comentarios: Attribute.Relation<
-      'api::perfume.perfume',
-      'oneToMany',
-      'api::comentario.comentario'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::perfume.perfume',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::perfume.perfume',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiUsuarioUsuario extends Schema.CollectionType {
-  collectionName: 'usuarios';
-  info: {
-    singularName: 'usuario';
-    pluralName: 'usuarios';
-    displayName: 'Usuarios';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nome_usuario: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 4;
-        maxLength: 25;
-      }>;
-    nome: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-        maxLength: 50;
-      }>;
-    senha: Attribute.Password &
-      Attribute.Required &
-      Attribute.Private &
-      Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
-    email: Attribute.Email &
-      Attribute.Required &
-      Attribute.Private &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 5;
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::usuario.usuario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::usuario.usuario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -939,6 +879,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::comentario.comentario': ApiComentarioComentario;
+      'api::perfume.perfume': ApiPerfumePerfume;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -947,9 +889,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::comentario.comentario': ApiComentarioComentario;
-      'api::perfume.perfume': ApiPerfumePerfume;
-      'api::usuario.usuario': ApiUsuarioUsuario;
     }
   }
 }
