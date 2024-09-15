@@ -3,25 +3,173 @@
 </script>
 
 <template>
-    <div>
+    <div class="perfumes">
         <hr>
         <!--cards de perfumes Femininos-->
+        <h4 class="tipo-perfume">Destaques Femininos</h4>
         <div class="cards">
             <div class="card">
-                <img src="" alt="">
-                <div>
-                    <p>Nome perfume</p>
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
                 </div>
-                <div>
-                    <p>Preço</p>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
                 </div>
             </div>
         </div>
-        <hr>
         <!--cards de perfumes Masculinos-->
+        <h4 class="tipo-perfume">Destaques Masculinos</h4>
+        <div class="cards">
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000" alt="">
+                <div class="nome-perfume">
+                    J'adore Parfum D'eau
+                </div>
+                <div class="preco-perfume">
+                    <p>R$ 549,00</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <button class="descubra-mais">
+        Descubra mais
+    </button>
 </template>
 
 <style>
-
+    @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    * {
+        margin: 0;
+    }
+    hr {
+        width: 100%;
+        border: solid black 1px;
+    }
+    .perfumes {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10vh;
+    }
+    .perfumes .tipo-perfume {
+        font-family: "Playwrite CU", cursive;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    .perfumes .cards {
+        display: flex;
+    }
+    .perfumes .cards .card img {
+        width: 200px;
+        height: 200px;
+    }
+    .perfumes .cards .card {
+        width: 200px;
+        padding: 10px;
+        margin: 5px;
+        border-bottom: solid black 1px;
+    }
+    .perfumes .cards .card .nome-perfume {
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 400;
+        font-style: normal;   
+    }
+    .perfumes .cards .card .preco-perfume {
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 200;
+        font-style: normal;       
+    }
+    .descubra-mais {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: black;
+        border: none;
+        color: white;
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .descubra-mais:hover {
+        transition-duration: 300ms;
+        color: black;
+        background-color: white;
+        border-bottom: solid black 1px;
+    }
 </style>
