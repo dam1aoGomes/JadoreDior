@@ -2,6 +2,7 @@
 import Cabecalho from '@/components/Cabecalho.vue';
 import Destaque from '@/components/Destaque.vue';
 import Rodape from '@/components/Rodape.vue';
+import PerfumesInicias from '@/components/PerfumesInicias.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import Rodape from '@/components/Rodape.vue';
     </header>
     <main>
       <Destaque />
+      <PerfumesInicias />
     </main>
     <footer>
       <Rodape />
@@ -28,6 +30,8 @@ import Rodape from '@/components/Rodape.vue';
   }
   main {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
   }
 </style>
