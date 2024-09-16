@@ -425,7 +425,7 @@ export interface ApiPerfumePerfume extends Schema.CollectionType {
       'oneToMany',
       'api::comentario.comentario'
     >;
-    img_url: Attribute.String;
+    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

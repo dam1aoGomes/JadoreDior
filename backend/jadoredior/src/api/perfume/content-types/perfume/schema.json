@@ -34,8 +34,15 @@
       "relation": "oneToMany",
       "target": "api::comentario.comentario"
     },
-    "img_url": {
-      "type": "string"
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
