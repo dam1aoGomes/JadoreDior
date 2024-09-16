@@ -417,7 +417,7 @@ export interface ApiPerfumePerfume extends Schema.CollectionType {
   };
   attributes: {
     nome: Attribute.String & Attribute.Required & Attribute.Unique;
-    valor: Attribute.Float & Attribute.Required;
+    valor: Attribute.Decimal & Attribute.Required;
     marca: Attribute.String & Attribute.Required;
     id_perfume: Attribute.UID & Attribute.Required;
     comentarios: Attribute.Relation<
@@ -425,6 +425,7 @@ export interface ApiPerfumePerfume extends Schema.CollectionType {
       'oneToMany',
       'api::comentario.comentario'
     >;
+    img_url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -18,7 +18,7 @@
       "unique": true
     },
     "valor": {
-      "type": "float",
+      "type": "decimal",
       "required": true
     },
     "marca": {
@@ -33,6 +33,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::comentario.comentario"
+    },
+    "img_url": {
+      "type": "string"
     }
   }
 }
