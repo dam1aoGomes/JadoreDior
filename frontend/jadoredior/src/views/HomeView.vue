@@ -5,7 +5,6 @@ import Rodape from "@/components/Rodape.vue";
 import PerfumesInicias from "@/components/PerfumesInicias.vue";
 import { onMounted, ref } from "vue";
 import { api } from "@/api";
-import PerfumeCard from "@/components/PerfumeCard.vue";
 
 const perfumes = ref([]);
 const loading = ref(true);
@@ -17,7 +16,6 @@ onMounted(async () => {
       },
     });
     perfumes.value = data.data;
-    console.log(perfumes.value);
   } catch (error) {
     console.log(error);
   } finally {
