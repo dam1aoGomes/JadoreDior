@@ -1,4 +1,6 @@
 <script setup lang="js">
+import { BASE_URL } from "@/api";
+
 const { nome, valor, marca, id_perfume, img_url } = defineProps({
   nome: { type: String, required: true },
   valor: { type: Number, required: true },
@@ -14,7 +16,7 @@ const { nome, valor, marca, id_perfume, img_url } = defineProps({
 
 <template>
   <div class="card">
-    <img :src="img_url" alt="" />
+    <img :src="`${BASE_URL}` + img_url" alt="" />
     <div class="nome-perfume">{{ nome }}</div>
     <div class="preco-perfume">
       <p>
