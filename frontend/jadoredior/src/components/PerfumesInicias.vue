@@ -15,7 +15,7 @@ const props = defineProps({
     <div class="cards">
       <PerfumeCard
         v-for="perfume in perfumes"
-        :key="perfume.id"
+        :id="perfume.id"
         :nome="perfume.attributes.nome"
         :valor="perfume.attributes.valor"
         :marca="perfume.attributes.marca"

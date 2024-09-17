@@ -1,8 +1,10 @@
 <script setup lang="js">
 import { BASE_URL } from "@/api";
+import { RouterLink } from 'vue-router'
 
-const { nome, valor, marca, id_perfume, img_url } = defineProps({
-  nome: { type: String, required: true },
+const { id, nome, valor, marca, id_perfume, img_url } = defineProps({
+  id : {type: Number, required: true},
+  nome : { type: String, required: true },
   valor: { type: Number, required: true },
   marca: { type: String, default: "" },
   id_perfume: { type: String, required: true },
@@ -12,11 +14,15 @@ const { nome, valor, marca, id_perfume, img_url } = defineProps({
       "https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000",
   }, // Adicionar uma imagem padrão
 });
+
+console.log(id)
 </script>
 
 <template>
   <div class="card">
-    <img :src="`${BASE_URL}` + img_url" alt="" />
+    <RouterLink :to="'/perfume/' + id">
+      <img :src="`${BASE_URL}` + img_url" alt="" />
+    </RouterLink>
     <div class="nome-perfume">{{ nome }}</div>
     <div class="preco-perfume">
       <p>
