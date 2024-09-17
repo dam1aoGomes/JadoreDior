@@ -25,32 +25,20 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="body">
-    <header>
-      <Cabecalho />
-    </header>
-    <main>
-      <Destaque />
-      <PerfumesInicias :perfumes="perfumes" />
-    </main>
-    <footer>
-      <Rodape />
-    </footer>
-  </div>
+  <Cabecalho/>
+  <main>
+    <Destaque/>
+    <PerfumesInicias :perfumes="perfumes"/>
+  </main>
+  <Rodape/>
 </template>
 
 <style>
-* {
-  margin: 0;
-}
-.body {
-  display: flex;
-  flex-direction: column;
-}
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250vh;
+    max-width: 100vw;
+  }
 </style>

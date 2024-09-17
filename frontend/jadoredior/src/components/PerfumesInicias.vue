@@ -10,7 +10,6 @@ const props = defineProps({
 
 <template>
   <div class="perfumes">
-    <hr />
     <!--cards de perfumes Femininos-->
     <h4 class="tipo-perfume">Destaques Femininos</h4>
     <div class="cards">
@@ -25,20 +24,12 @@ const props = defineProps({
       />
     </div>
   </div>
-
   <button class="descubra-mais">Descubra mais</button>
 </template>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
-* {
-  margin: 0;
-}
-hr {
-  width: 100%;
-  border: solid black 1px;
-}
 .perfumes {
   display: flex;
   flex-direction: column;

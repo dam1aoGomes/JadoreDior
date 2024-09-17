@@ -26,43 +26,37 @@
 </template>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
-    * {
-        margin: 0;
-    }
-    a {
-        text-decoration: none;
-        color: white;
-        margin: 5px;
-    }
-    .rodape {
-        margin-top: 20px;
-        background-color: black;
-        width: 100%;
-        min-height: 25vh;
-        display: flex;
-        justify-content: space-around;
-        font-family: "Gothic A1", sans-serif;
-        font-weight: 200;
-        font-style: normal; 
-    }
-    .rodape .servico-cliente {
-        display: flex;
-        flex-direction: column;
-        color: white;
-        margin-top: 20px;
-        margin-right: 30px;
-    }
-    .rodape .a-maison-dior {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-        color: white;
-    }
-    .rodape .siga-nos {
-        display: flex;
-        flex-direction: column;
-        color: white;
-        margin-top: 20px;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
+a {
+    text-decoration: none;
+    color: white;
+    margin: 5px;
+}
+.rodape {
+    margin-top: 20px;
+    background-color: black;
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 200;
+    font-style: normal; 
+}
+.rodape .servico-cliente {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-right: 30px;
+}
+.rodape .a-maison-dior {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.rodape .siga-nos {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
 </style>
