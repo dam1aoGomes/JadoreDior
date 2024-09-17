@@ -29,9 +29,10 @@ nav {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    max-width: 100vw;
+    min-width: 100vw;
     height: 10vh;
     border-bottom: solid black 1px;
+    border: solid Red 1px;
 }
 #home-link {
     font-family: "Playwrite CU", cursive;

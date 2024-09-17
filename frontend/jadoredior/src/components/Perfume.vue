@@ -1,4 +1,5 @@
 <script setup>
+import Cabecalho from './Cabecalho.vue';
 
 const { id, nome, valor, marca, img_url } = defineProps({
   id : {type: Number, required: true},
@@ -14,7 +15,25 @@ const { id, nome, valor, marca, img_url } = defineProps({
 </script>
 
 <template>
+  <div class="perfume">
+    <div class="inicial">
+      <img src="" alt="">
+      <div class="info">
+        
     nome do perfume: {{ nome }}
     valor: {{ valor }}
     marca: {{ marca }}
+    img_url: {{ img_url }}
+      </div>
+    </div>
+    <div class="descricao"></div>
+  </div>
 </template>
+
+<style>
+  .perfume {
+    max-width: 100vw;
+    height: 100vh;
+    border: solid black 1px;
+  }
+</style>

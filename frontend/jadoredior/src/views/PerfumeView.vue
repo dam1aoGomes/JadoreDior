@@ -3,6 +3,8 @@ import { api } from '@/api';
 import { onBeforeMount, ref } from 'vue';
 
 import Perfume from '@/components/Perfume.vue';
+import Cabecalho from '@/components/Cabecalho.vue';
+import Rodape from '@/components/Rodape.vue';
 
 const perfume_data = ref({})
 const loading = ref(true);
@@ -37,11 +39,24 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-    {{ id }}
-    <br>
+  <Cabecalho/>
+  <main>
     <Perfume
     :id="perfume_data.id"
     :nome="perfume_data.attributes.nome"
     :valor="perfume_data.attributes.valor" 
-    :marca="perfume_data.attributes.marca"/>
+    :marca="perfume_data.attributes.marca"
+    :img_url="perfume_data.attributes.cover.data.attributes.url"/>
+  </main>
+  <Rodape/>
 </template>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250vh;
+    max-width: 100vw;
+  }
+</style>
