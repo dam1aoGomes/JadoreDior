@@ -14,8 +14,6 @@ const { id, nome, valor, marca, id_perfume, img_url } = defineProps({
       "https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000",
   }, // Adicionar uma imagem padrão
 });
-
-console.log(id)
 </script>
 
 <template>
