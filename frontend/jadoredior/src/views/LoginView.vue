@@ -40,7 +40,7 @@ async function authenticate() {
     if (role == "admin") {
       router.push("/admin");
     } else {
-      router.push("/home");
+      router.push("/");
     }
   } catch (e) {
     if (isAxiosError(e)) {
