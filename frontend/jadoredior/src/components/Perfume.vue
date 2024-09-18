@@ -1,5 +1,5 @@
 <script setup>
-import Cabecalho from './Cabecalho.vue';
+import { BASE_URL } from '@/api';
 
 const { id, nome, valor, marca, img_url } = defineProps({
   id : {type: Number, required: true},
@@ -17,23 +17,80 @@ const { id, nome, valor, marca, img_url } = defineProps({
 <template>
   <div class="perfume">
     <div class="inicial">
-      <img src="" alt="">
+      <img :src="`${BASE_URL}`+img_url" alt="" class="hero">
       <div class="info">
-        
-    nome do perfume: {{ nome }}
-    valor: {{ valor }}
-    marca: {{ marca }}
-    img_url: {{ img_url }}
+        <div class="marca"> {{ marca }}</div>
+        <div class="nome">{{ nome }}</div>
+        <div class="valor">
+          {{
+            valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+          }}
+        </div>
       </div>
     </div>
-    <div class="descricao"></div>
+    <div class="descricao">
+      <h3>Descrição</h3>
+      O Perfume One Million Masculino Eau de Toilette de Rabanne é uma escolha sofisticada e poderosa para o homem moderno.
+      Este perfume, lançado em 2008, se tornou um ícone na perfumaria masculina, conhecido por sua fragrância envolvente e embalagem luxuosa.
+      Exiba sua singularidade, viva no limite e mostre sua excelência. Viver não significa seguir todas as regras e, com 1 Million, você tem o poder de ditá-las.
+    </div>
   </div>
 </template>
 
-<style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
-
+.perfume {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.perfume .hero {
+  width: 500px;
+  height: 500px;
+}
+.perfume .inicial{
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.perfume .inicial .info {
+  box-shadow: 0 0 5px;
+  border-radius: 5px;
+  padding: 50px;
+}
+.perfume .inicial .info .marca {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.perfume .inicial .info .nome {
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+.perfume .inicial .info .valor {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 30px;
+}
+.perfume .descricao {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  width: 80%;
+  text-align: justify;
+  box-shadow: 0 0 5px;
+  border-radius: 5px;
+  padding: 10px;
+}
 </style>
