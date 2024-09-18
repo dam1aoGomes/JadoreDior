@@ -44,6 +44,7 @@ onBeforeMount(async () => {
       :valor="perfume_data.attributes.valor"
       :marca="perfume_data.attributes.marca"
       :img_url="perfume_data.attributes.cover.data.attributes.url"
+      :descricao="perfume_data.attributes.description"
     />
   </main>
   <Rodape />

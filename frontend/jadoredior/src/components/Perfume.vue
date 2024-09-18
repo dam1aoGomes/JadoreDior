@@ -1,11 +1,12 @@
 <script setup>
-import { BASE_URL } from '@/api';
+import { BASE_URL } from "@/api";
 
 const { id, nome, valor, marca, img_url } = defineProps({
-  id : {type: Number, required: true},
-  nome : { type: String, required: true },
+  id: { type: Number, required: true },
+  nome: { type: String, required: true },
   valor: { type: Number, required: true },
   marca: { type: String, default: "" },
+  descricao: { type: String, required: true },
   img_url: {
     type: String,
     default:
@@ -17,28 +18,29 @@ const { id, nome, valor, marca, img_url } = defineProps({
 <template>
   <div class="perfume">
     <div class="inicial">
-      <img :src="`${BASE_URL}`+img_url" alt="" class="hero">
+      <img :src="`${BASE_URL}` + img_url" alt="" class="hero" />
       <div class="info">
-        <div class="marca"> {{ marca }}</div>
+        <div class="marca">{{ marca }}</div>
         <div class="nome">{{ nome }}</div>
         <div class="valor">
           {{
-            valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+            valor.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })
           }}
         </div>
       </div>
     </div>
     <div class="descricao">
       <h3>Descrição</h3>
-      O Perfume One Million Masculino Eau de Toilette de Rabanne é uma escolha sofisticada e poderosa para o homem moderno.
-      Este perfume, lançado em 2008, se tornou um ícone na perfumaria masculina, conhecido por sua fragrância envolvente e embalagem luxuosa.
-      Exiba sua singularidade, viva no limite e mostre sua excelência. Viver não significa seguir todas as regras e, com 1 Million, você tem o poder de ditá-las.
+      {{ descricao }}
     </div>
   </div>
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
@@ -49,13 +51,13 @@ const { id, nome, valor, marca, img_url } = defineProps({
   min-height: 90vh;
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 .perfume .hero {
   width: 500px;
   height: 500px;
 }
-.perfume .inicial{
+.perfume .inicial {
   margin-top: 10vh;
   display: flex;
   justify-content: center;
@@ -94,3 +96,4 @@ const { id, nome, valor, marca, img_url } = defineProps({
   padding: 10px;
 }
 </style>
+
