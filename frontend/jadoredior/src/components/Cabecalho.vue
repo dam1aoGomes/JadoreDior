@@ -21,77 +21,48 @@ import { RouterLink } from 'vue-router'
 </nav>
 </template>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-nav {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    min-width: 100vw;
-    height: 10vh;
-    border-bottom: solid black 1px;
-    border: solid Red 1px;
+* {
+    margin: 0;
+    padding: 0;
 }
-#home-link {
+nav {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#home-link a {
     font-family: "Playwrite CU", cursive;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-}
-#home-link a {
     text-decoration: none;
     color: black;
-    padding-left: 15px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-}
-#home-link a:hover {
-    transition-duration: 500ms;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
 }
 #inp-perfume {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     padding: 10px;
-    border-radius: 10px;
     border: solid black 1px;
+    border-radius: 5px;    
+}
+#minha-conta-link a{
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-}
-#minha-conta-link {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    padding: 10px;
-}
-#minha-conta-link a {
-    padding: 10px;
     color: black;
     text-decoration: none;
-}
-#minha-conta-link svg {
-    margin-right: 5px;
-}
-#minha-conta-link a:hover {
-    transition-duration: 100ms;
-    border-bottom: solid black 1px;
-}
-#sobre-link {
-    padding: 10px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 #sobre-link a {
-    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     color: black;
-    padding: 10px;
-}
-#sobre-link a:hover {
-    transition-duration: 100ms;     
-    border-bottom: solid black 1px;
+    text-decoration: none;
 }
 </style>

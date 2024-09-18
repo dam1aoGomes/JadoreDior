@@ -1,4 +1,6 @@
 <script setup>
+import { RouterLink } from 'vue-router'
+
 import PerfumeCard from "./PerfumeCard.vue";
 const props = defineProps({
   perfumes: {
@@ -10,7 +12,6 @@ const props = defineProps({
 
 <template>
   <div class="perfumes">
-    <!--cards de perfumes Femininos-->
     <h4 class="tipo-perfume">Destaques Femininos</h4>
     <div class="cards">
       <PerfumeCard
@@ -23,63 +24,58 @@ const props = defineProps({
         :img_url="perfume.attributes.cover.data.attributes.url"
       />
     </div>
+    <RouterLink to="/perfumes/fem"><Button class="descubra-mais">Descubra Mais</Button></RouterLink>
+    <h4 class="tipo-perfume">Destaques Masculinos</h4>
+    <div class="cards">
+      <PerfumeCard
+        v-for="perfume in perfumes"
+        :id="perfume.id"
+        :nome="perfume.attributes.nome"
+        :valor="perfume.attributes.valor"
+        :marca="perfume.attributes.marca"
+        :id_perfume="perfume.attributes.id_perfume"
+        :img_url="perfume.attributes.cover.data.attributes.url"
+      />
+    </div>
+    <RouterLink to="/perfumes/mas"><Button class="descubra-mais">Descubra Mais</Button></RouterLink>
   </div>
-  <button class="descubra-mais">Descubra mais</button>
 </template>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.perfumes {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10vh;
+* {
+  margin: 0;
+  padding: 0;
 }
-.perfumes .tipo-perfume {
-  font-family: "Playwrite CU", cursive;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  margin-top: 30px;
-  margin-bottom: 15px;
+.perfumes {
+  width: 100%;
+  min-height: 120vh;
 }
 .perfumes .cards {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.perfumes .cards .card img {
-  width: 200px;
-  height: 200px;
+.perfumes .tipo-perfume {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 10vw;
+  margin-top: 10vh;
 }
-.perfumes .cards .card {
-  width: 200px;
+.perfumes .descubra-mais {
+  margin-left: 10vw;
   padding: 10px;
-  margin: 5px;
-  border-bottom: solid black 1px;
-}
-.perfumes .cards .card .nome-perfume {
   font-family: "Gothic A1", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-}
-.perfumes .cards .card .preco-perfume {
-  font-family: "Gothic A1", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-.descubra-mais {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: black;
-  border: none;
-  color: white;
-  font-family: "Gothic A1", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.descubra-mais:hover {
-  transition-duration: 300ms;
-  color: black;
+  border: solid black 1px;
   background-color: white;
-  border-bottom: solid black 1px;
+}
+.perfumes .descubra-mais:hover {
+  transition-duration: 100ms;
+  color: white;
+  background-color: black;
 }
 </style>

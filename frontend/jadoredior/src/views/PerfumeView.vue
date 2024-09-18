@@ -9,7 +9,7 @@ import Rodape from '@/components/Rodape.vue';
 const perfume_data = ref({})
 const loading = ref(true);
 
-const token = "93dc75f6865519605e82b9e7c299fdf7f2e411f4d1615008fce8f575d2278aa79f1e48eecde6d29dc87ce8814370ab324e7bc30379589b5bdbbc2e37f3aba3318a68126d3fa7f6ac3c1516046aaf1c66218fd2c4bb0049e4626b70f5915602d61052d345c3e98125212e11d7ed22ff13f8e98565cbecdc64f215174a8c13a097"
+const token = "651e3ff808f4647429050fc747f61622407f8db81b00960dac1d1839b52e1ed6732aaabf9258ea9fecd3f34cb681460418042908300e5fda9fe0749985019256545328de01c20e7ade314181211e78ec77bacb27a861b9a342f020468e1c740a80aac0e6c18ed7e9997e80584c823f3eb60190b5096ae4f06aae927b6adc931e"
 
 const {id} = defineProps({
     id : {
@@ -52,11 +52,5 @@ onBeforeMount(async () => {
 </template>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 250vh;
-    max-width: 100vw;
-  }
+
 </style>

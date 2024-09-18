@@ -5,19 +5,19 @@
 <template>
     <div class="rodape">
         <div class="servico-cliente">
-            <h5>Serviço ao cliente</h5>
+            <h4>Serviço ao cliente</h4>
             <a href="">Contato</a>
             <a href="">Entrega e Devoluções</a>
             <a href="">FAQ</a>
         </div>
         <div class="a-maison-dior">
-            <h5>A Maison Dior</h5>
+            <h4>A Maison Dior</h4>
             <a href="">Termos e condições legais</a>
             <a href="">Politica de privacidade</a>
             <a href="">Preferencias de cookies</a>
         </div>
         <div class="siga-nos">
-            <h5>Siga-nos</h5>
+            <h4>Siga-nos</h4>
             <a href="">Instragram</a>
             <a href="">Facebook</a>
             <a href="">X</a>
@@ -27,36 +27,55 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
-a {
-    text-decoration: none;
-    color: white;
-    margin: 5px;
+* {
+    margin: 0;
+    padding: 0;
 }
 .rodape {
-    margin-top: 20px;
-    background-color: black;
-    min-height: 35vh;
+    width: 100%;
+    height: 25vh;
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
+    background-color: black;
     font-family: "Gothic A1", sans-serif;
-    font-weight: 200;
-    font-style: normal; 
+    font-weight: 400;
+    font-style: normal;
 }
 .rodape .servico-cliente {
     display: flex;
     flex-direction: column;
     color: white;
-    margin-right: 30px;
+}
+.rodape .servico-cliente a {
+    text-decoration: none;
+    color: white;
+}
+.rodape .servico-cliente a:hover {
+    border-bottom: solid white 1px;
 }
 .rodape .a-maison-dior {
     display: flex;
     flex-direction: column;
     color: white;
 }
+.rodape .a-maison-dior a {
+    text-decoration: none;
+    color: white;
+}
+.rodape .a-maison-dior a:hover {
+    border-bottom: solid white 1px;
+}
 .rodape .siga-nos {
     display: flex;
     flex-direction: column;
     color: white;
+}
+.rodape .siga-nos a {
+    text-decoration: none;
+    color: white; 
+}
+.rodape .siga-nos a:hover {
+    border-bottom: solid white 1px;
 }
 </style>

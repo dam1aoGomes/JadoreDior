@@ -26,19 +26,11 @@ onMounted(async () => {
 
 <template>
   <Cabecalho/>
-  <main>
-    <Destaque/>
-    <PerfumesInicias :perfumes="perfumes"/>
-  </main>
+  <Destaque/>
+  <PerfumesInicias :perfumes="perfumes"/>
   <Rodape/>
 </template>
 
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 250vh;
-    max-width: 100vw;
-  }
+<style scoped>
+
 </style>

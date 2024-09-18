@@ -31,9 +31,9 @@ const { id, nome, valor, marca, img_url } = defineProps({
 </template>
 
 <style>
-  .perfume {
-    max-width: 100vw;
-    height: 100vh;
-    border: solid black 1px;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
+
 </style>

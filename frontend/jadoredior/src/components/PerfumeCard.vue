@@ -21,7 +21,7 @@ const { id, nome, valor, marca, id_perfume, img_url } = defineProps({
     <RouterLink :to="'/perfume/' + id">
       <img :src="`${BASE_URL}` + img_url" alt="" />
     </RouterLink>
-    <div class="nome-perfume">{{ nome }}</div>
+    <div class="info-perfume">{{ nome }} - {{ marca }}</div>
     <div class="preco-perfume">
       <p>
         {{
@@ -35,22 +35,22 @@ const { id, nome, valor, marca, id_perfume, img_url } = defineProps({
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
-.cards {
-  display: flex;
+* {
+  margin: 0;
+  padding: 0;
+}
+.card {
+  width: 200px;
 }
 .card img {
   width: 200px;
   height: 200px;
+  box-shadow: 0 0 5px black;
+  border-radius: 20px;
 }
-.card {
-  width: 200px;
-  padding: 10px;
-  margin: 5px;
-  border-bottom: solid black 1px;
-}
-.card .nome-perfume {
+.card .info-perfume {
   font-family: "Gothic A1", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 .card .preco-perfume {
