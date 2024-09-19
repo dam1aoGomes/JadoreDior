@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <div class="perfumes">
-    <h4 class="tipo-perfume">Destaques Femininos</h4>
+    <h4>Perfumes em destaque</h4>
     <div class="cards">
       <PerfumeCard
         v-for="perfume in perfumes"
@@ -24,34 +24,21 @@ const props = defineProps({
         :img_url="perfume.attributes.cover.data.attributes.url"
       />
     </div>
-    <RouterLink to="/perfumes/fem"><Button class="descubra-mais">Descubra Mais</Button></RouterLink>
-    <h4 class="tipo-perfume">Destaques Masculinos</h4>
-    <div class="cards">
-      <PerfumeCard
-        v-for="perfume in perfumes"
-        :id="perfume.id"
-        :nome="perfume.attributes.nome"
-        :valor="perfume.attributes.valor"
-        :marca="perfume.attributes.marca"
-        :id_perfume="perfume.attributes.id_perfume"
-        :img_url="perfume.attributes.cover.data.attributes.url"
-      />
-    </div>
-    <RouterLink to="/perfumes/mas"><Button class="descubra-mais">Descubra Mais</Button></RouterLink>
+    <RouterLink to="/perfumes"><Button class="descubra-mais">Descubra Mais</Button></RouterLink>
   </div>
 </template>
 
 <style scoped>
 .perfumes {
   width: 100%;
-  min-height: 120vh;
+  min-height: 70vh;
 }
 .perfumes .cards {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.perfumes .tipo-perfume {
+.perfumes h4 {
   font-family: "Gothic A1", sans-serif;
   font-weight: 500;
   font-style: normal;
