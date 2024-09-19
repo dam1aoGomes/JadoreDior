@@ -6,6 +6,7 @@ import { computed } from "vue";
 const userStore = useUserStore();
 
 const isAuthenticated = computed(() => userStore.isAuthenticated());
+const role = computed(() => userStore.role());
 </script>
 
 <template>
@@ -24,6 +25,10 @@ const isAuthenticated = computed(() => userStore.isAuthenticated());
     <div id="minha-conta-link">
       <template v-if="isAuthenticated">
         <span class="text-black">{{ userStore.username() }}</span>
+
+        <template v-if="userStore.role() == 'Admin'">
+          <RouterLink to="/admin">Dashboard</RouterLink>
+        </template>
 
         <a href="#" @click="userStore.logout" class="text-black"> Logout </a>
       </template>
