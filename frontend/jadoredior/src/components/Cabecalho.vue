@@ -24,13 +24,26 @@ const role = computed(() => userStore.role());
 
     <div id="minha-conta-link">
       <template v-if="isAuthenticated">
-        <span class="text-black">{{ userStore.username() }}</span>
+        <span class="text-black"> <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+            />
+          </svg> {{ userStore.username() }}</span>
 
         <template v-if="userStore.role() == 'Admin'">
-          <RouterLink to="/admin">Dashboard</RouterLink>
+          <RouterLink to="/admin" id="dashboard">Dashboard</RouterLink>
         </template>
 
-        <a href="#" @click="userStore.logout" class="text-black"> Logout </a>
+        <a href="#" @click="userStore.logout" class="text-black" id="logout">Logout</a>
       </template>
       <template v-else>
         <RouterLink to="/login">
@@ -49,24 +62,6 @@ const role = computed(() => userStore.role());
             />
           </svg>
           Minha Conta
-        </RouterLink>
-
-        <RouterLink to="/register">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-person-circle"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-            <path
-              fill-rule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-            />
-          </svg>
-          Registrar
         </RouterLink>
       </template>
     </div>
@@ -113,5 +108,17 @@ nav {
   font-style: normal;
   color: black;
   text-decoration: none;
+}
+#dashboard {
+  margin-left: 10px;
+  box-shadow: 0 0 5px black;
+  padding: 5px;
+  border-radius: 5px;
+}
+#logout {
+  margin-left: 5px;
+  padding: 5px;
+  border: solid black 1px;
+  border-radius: 5px;
 }
 </style>
