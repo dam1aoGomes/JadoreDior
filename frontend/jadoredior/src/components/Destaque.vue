@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
 <div class="destaque">
-  <RouterLink to="/">
+  <RouterLink to="/perfume/4">
     <img
       class="hero"
       src="https://lojadior.vteximg.com.br/arquivos/jdr-or-s-2-24-model-pack-5550-x-2000-1.jpg"

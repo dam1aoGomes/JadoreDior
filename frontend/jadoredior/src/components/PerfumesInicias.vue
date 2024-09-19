@@ -35,8 +35,7 @@ const props = defineProps({
 }
 .perfumes .cards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 .perfumes h4 {
   font-family: "Gothic A1", sans-serif;

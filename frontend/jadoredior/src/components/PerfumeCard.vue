@@ -35,17 +35,20 @@ const { id, nome, valor, marca, id_perfume, img_url } = defineProps({
 <style scoped>
 .card {
   width: 200px;
+  padding: 10px;
 }
 .card img {
   width: 200px;
   height: 200px;
   box-shadow: 0 0 5px black;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .card .info-perfume {
   font-family: "Gothic A1", sans-serif;
   font-weight: 500;
   font-style: normal;
+  border-top: solid black 1px;
+  padding-top: 5px;
 }
 .card .preco-perfume {
   font-family: "Gothic A1", sans-serif;

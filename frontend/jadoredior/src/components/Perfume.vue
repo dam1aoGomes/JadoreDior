@@ -60,7 +60,8 @@ const { id, nome, valor, marca, img_url } = defineProps({
 .perfume .inicial .info {
   box-shadow: 0 0 5px;
   border-radius: 5px;
-  padding: 50px;
+  margin-left: 40px;
+  padding: 40px;
 }
 .perfume .inicial .info .marca {
   font-family: "Gothic A1", sans-serif;
@@ -78,6 +79,8 @@ const { id, nome, valor, marca, img_url } = defineProps({
   font-weight: 300;
   font-style: normal;
   margin-top: 30px;
+  padding-top: 5px;
+  border-top: solid black 1px;
 }
 .perfume .descricao {
   font-family: "Gothic A1", sans-serif;
