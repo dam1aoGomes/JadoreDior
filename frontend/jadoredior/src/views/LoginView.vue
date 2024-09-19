@@ -5,6 +5,7 @@ import { RouterLink } from 'vue-router';
 <template>
     <form action="">
         <input type="email" name="" id="" placeholder="email">
+        <br>
         <input type="password" name="" id="" placeholder="senha">
     </form>
 
