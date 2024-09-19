@@ -40,10 +40,12 @@ const role = computed(() => userStore.role());
           </svg> {{ userStore.username() }}</span>
 
         <template v-if="userStore.role() == 'Admin'">
-          <RouterLink to="/admin" id="dashboard">Dashboard</RouterLink>
+          <RouterLink to="/dashboard" id="dashboard">Dashboard</RouterLink>
         </template>
 
-        <a href="#" @click="userStore.logout" class="text-black" id="logout">Logout</a>
+        <a href="#" @click="userStore.logout" class="text-black" id="logout">
+          <RouterLink to="/">Logout</RouterLink>
+        </a>
       </template>
       <template v-else>
         <RouterLink to="/login">
