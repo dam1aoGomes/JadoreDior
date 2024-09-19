@@ -23,7 +23,7 @@ Um site destinado a ser vitrine e loja de perfumes franceses.
 ## :triangular_flag_on_post: Principais funcionalidades da aplicação
 
 - Usuário não registrado pode ver perfumes e datalhes sobre o mesmo
-- Usuário registrado pode fazer comentarios e adicionar produtos ao carrinho
+- Usuário registrado pode fazer comentarios.
 - Administrador pode remover, adicionar ou modificar perfumes
 
 ---
