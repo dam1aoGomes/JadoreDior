@@ -71,12 +71,6 @@ const isAuthenticated = computed(() => userStore.isAuthenticated());
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
 nav {
   width: 100%;
   height: 10vh;

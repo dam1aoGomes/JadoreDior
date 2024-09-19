@@ -30,7 +30,3 @@ onMounted(async () => {
   <PerfumesInicias :perfumes="perfumes"/>
   <Rodape/>
 </template>
-
-<style scoped>
-
-</style>

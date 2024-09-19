@@ -49,6 +49,3 @@ onBeforeMount(async () => {
   </main>
   <Rodape />
 </template>
-
-<style></style>
-

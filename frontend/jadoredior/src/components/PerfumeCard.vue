@@ -33,12 +33,6 @@ const { id, nome, valor, marca, id_perfume, img_url } = defineProps({
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
 .card {
   width: 200px;
 }
