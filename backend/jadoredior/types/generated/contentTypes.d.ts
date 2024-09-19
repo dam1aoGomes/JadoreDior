@@ -426,6 +426,7 @@ export interface ApiPerfumePerfume extends Schema.CollectionType {
       'api::comentario.comentario'
     >;
     cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
