@@ -18,9 +18,6 @@
       "minLength": 3,
       "maxLength": 255
     },
-    "id_comentario": {
-      "type": "uid"
-    },
     "perfume": {
       "type": "relation",
       "relation": "oneToOne",

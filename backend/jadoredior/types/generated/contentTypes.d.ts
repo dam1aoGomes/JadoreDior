@@ -380,7 +380,6 @@ export interface ApiComentarioComentario extends Schema.CollectionType {
         minLength: 3;
         maxLength: 255;
       }>;
-    id_comentario: Attribute.UID;
     perfume: Attribute.Relation<
       'api::comentario.comentario',
       'oneToOne',
@@ -419,7 +418,6 @@ export interface ApiPerfumePerfume extends Schema.CollectionType {
     nome: Attribute.String & Attribute.Required & Attribute.Unique;
     valor: Attribute.Decimal & Attribute.Required;
     marca: Attribute.String & Attribute.Required;
-    id_perfume: Attribute.UID & Attribute.Required;
     comentarios: Attribute.Relation<
       'api::perfume.perfume',
       'oneToMany',

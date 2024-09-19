@@ -25,10 +25,6 @@
       "type": "string",
       "required": true
     },
-    "id_perfume": {
-      "type": "uid",
-      "required": true
-    },
     "comentarios": {
       "type": "relation",
       "relation": "oneToMany",
