@@ -69,6 +69,25 @@ const router = createRouter({
       name: "cadastro-perfume",
       component: CadastroPerfumeView,
     },
+    {
+      path: "/atualizar-perfume/:id",
+      name: "atualizar-perfume",
+      component: CadastroPerfumeView,
+      props: true,
+      meta: {
+        requiresAuth: true,
+      },
+      beforeEnter: (to, from, next) => {
+        const userStore = useUserStore();
+        if (!userStore.isAuthenticated()) {
+          next("/login");
+        } else if (userStore.role() !== "Admin") {
+          next("/");
+        } else {
+          next();
+        }
+      },
+    },
   ],
 });
 

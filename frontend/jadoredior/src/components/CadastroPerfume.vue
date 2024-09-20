@@ -24,21 +24,27 @@ const route = useRoute();
 
 async function getPerfume() {
   try {
+    loading.value = true;
     const { data } = await api.get(`/perfumes/${route.params.id}`, {
       params: {
         populate: "cover",
       },
     });
-    const perfume = data.data;
+    const perfume = data.data.attributes;
     id.value = Number(route.params.id);
     nome.value = perfume.nome;
     marca.value = perfume.marca;
     valor.value = perfume.valor;
     description.value = perfume.description;
-    coverURL.value = perfume.cover.url;
+    
+    // Verificando se há cover antes de acessar
+    if (perfume.cover?.data) {
+      coverURL.value = perfume.cover.data.attributes.url;
+    }
   } catch (e) {
     if (isAxiosError(e)) {
       error.value = e.response?.data;
+      feedback.value = error.value?.message || "Erro ao carregar perfume.";
     }
   } finally {
     loading.value = false;
@@ -46,15 +52,19 @@ async function getPerfume() {
 }
 
 function handleUpload(event) {
-  const target = event.target;
-  cover.value = target.files?.item(0);
+  cover.value = event.target.files?.item(0);
 }
 
 async function createPerfume() {
+  feedback.value = "";
+  error.value = null;
+  loading.value = true;
+
   try {
-    loading.value = true;
     const formData = new FormData();
-    formData.append("files.cover", cover.value);
+    if (cover.value) {
+      formData.append("files.cover", cover.value);
+    }
     formData.append(
       "data",
       JSON.stringify({
@@ -75,7 +85,7 @@ async function createPerfume() {
   } catch (e) {
     if (isAxiosError(e)) {
       error.value = e.response?.data;
-      feedback.value = error.value.error.message;
+      feedback.value = error.value?.message || "Erro ao criar perfume.";
     }
   } finally {
     loading.value = false;
@@ -83,53 +93,37 @@ async function createPerfume() {
 }
 
 async function updatePerfume() {
+  feedback.value = "";
+  error.value = null;
+  loading.value = true;
+
   try {
-    loading.value = true;
-
+    const formData = new FormData();
     if (cover.value) {
-      const formData = new FormData();
       formData.append("files.cover", cover.value);
-      formData.append(
-        "data",
-        JSON.stringify({
-          nome: nome.value,
-          marca: marca.value,
-          valor: valor.value,
-          description: description.value,
-        }),
-      );
-
-      const { data } = await api.put(`/perfumes/${id.value}`, formData, {
-        headers: {
-          Authorization: `Bearer ${userStore.jwt}`,
-        },
-      });
-
-      feedback.value = "Perfume atualizado com sucesso.";
-    } else {
-      const { data } = await api.put(
-        `/perfumes/${id.value}`,
-        {
-          data: {
-            nome: nome.value,
-            marca: marca.value,
-            valor: valor.value,
-            description: description.value,
-          },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${userStore.jwt}`,
-          },
-        },
-      );
-      await getPerfume();
-      feedback.value = `Perfume ${data.data.nome} atualizado com sucesso.`;
     }
+    formData.append(
+      "data",
+      JSON.stringify({
+        nome: nome.value,
+        marca: marca.value,
+        valor: valor.value,
+        description: description.value,
+      }),
+    );
+
+    const { data } = await api.put(`/perfumes/${id.value}`, formData, {
+      headers: {
+        Authorization: `Bearer ${userStore.jwt}`,
+      },
+    });
+
+    feedback.value = `Perfume ${data.data.attributes.nome} atualizado com sucesso.`;
+    await getPerfume();
   } catch (e) {
     if (isAxiosError(e)) {
       error.value = e.response?.data;
-      feedback.value = error.value.error.message;
+      feedback.value = error.value?.message || "Erro ao atualizar perfume.";
     }
   } finally {
     loading.value = false;
@@ -152,7 +146,8 @@ if (route.params.id) {
   </div>
 
   <form @submit.prevent="id != 0 ? updatePerfume() : createPerfume()">
-    <img v-if="coverURL" :src="useUpload()(coverURL)" />
+    <img v-if="coverURL" :src="useUpload()(coverURL)" alt="Imagem do perfume" />
+
     <div>
       <label for="coverInput">Imagem do Perfume</label>
       <input
@@ -162,6 +157,7 @@ if (route.params.id) {
         accept="image/*"
       />
     </div>
+
     <div>
       <label for="nomeInput">Nome do Perfume</label>
       <input
@@ -171,6 +167,7 @@ if (route.params.id) {
         placeholder="Nome do perfume"
       />
     </div>
+
     <div>
       <label for="marcaInput">Marca</label>
       <input
@@ -180,6 +177,7 @@ if (route.params.id) {
         placeholder="Marca do perfume"
       />
     </div>
+
     <div>
       <label for="descriptionInput">Descrição</label>
       <textarea
@@ -188,6 +186,7 @@ if (route.params.id) {
         placeholder="Descrição do perfume"
       ></textarea>
     </div>
+
     <div>
       <label for="valorInput">Valor</label>
       <input
@@ -197,9 +196,11 @@ if (route.params.id) {
         placeholder="Valor do perfume"
       />
     </div>
+
     <RouterLink to="/admin">Cancelar</RouterLink>
+
     <button type="submit">
-      {{ id ? "Editar" : "Criar" }}
+      {{ id != 0 ? "Atualizar Perfume" : "Criar Perfume" }}
     </button>
   </form>
 </template>
@@ -212,3 +213,4 @@ if (route.params.id) {
   color: red;
 }
 </style>
+
