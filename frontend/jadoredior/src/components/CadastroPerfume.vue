@@ -5,7 +5,7 @@ import { api } from "@/api";
 import { useUpload } from "@/composables/useUpload";
 import { RouterLink, useRoute } from "vue-router";
 import { useUserStore } from "@/stores/user_store";
-
+import { useRouter } from "vue-router";
 const id = ref(0);
 const nome = ref("");
 const marca = ref("");
@@ -14,6 +14,7 @@ const coverURL = ref("");
 const valor = ref(null);
 const description = ref("");
 
+const router = useRouter();
 const userStore = useUserStore();
 
 const loading = ref(false);
@@ -36,7 +37,7 @@ async function getPerfume() {
     marca.value = perfume.marca;
     valor.value = perfume.valor;
     description.value = perfume.description;
-    
+
     // Verificando se há cover antes de acessar
     if (perfume.cover?.data) {
       coverURL.value = perfume.cover.data.attributes.url;
@@ -82,6 +83,7 @@ async function createPerfume() {
     });
 
     feedback.value = "Perfume criado com sucesso.";
+    router.push("/dashboard");
   } catch (e) {
     if (isAxiosError(e)) {
       error.value = e.response?.data;
@@ -213,4 +215,3 @@ if (route.params.id) {
   color: red;
 }
 </style>
-
