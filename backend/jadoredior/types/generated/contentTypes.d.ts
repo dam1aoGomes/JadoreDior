@@ -385,6 +385,11 @@ export interface ApiComentarioComentario extends Schema.CollectionType {
       'oneToOne',
       'api::perfume.perfume'
     >;
+    author: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

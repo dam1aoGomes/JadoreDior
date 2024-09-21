@@ -1,5 +1,7 @@
 <script setup>
 import PerfumeCard from "./PerfumeCard.vue";
+import Comentarios from "./Comentarios.vue";
+import AdicionarComentario from "./AdicionarComentario.vue";
 
 import { onBeforeMount, ref } from "vue";
 import { api } from "@/api";

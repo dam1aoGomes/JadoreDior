@@ -222,7 +222,7 @@ if (route.params.id) {
 </div>
 </template>
 
-<style>
+<style scoped>
 .success-message {
   color: green;
 }

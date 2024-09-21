@@ -42,13 +42,14 @@ const props = defineProps({
 
 <style scoped>
 .dashboard {
-    height: 90vh;
+    min-height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: start;
     font-family: "Roboto", sans-serif;
     font-style: normal;
+    overflow-y: auto;
 }
 .dashboard .bem-vindo {
     margin-top: 10vh;
@@ -87,6 +88,5 @@ const props = defineProps({
     margin-left: 10%;
     display: flex;
     flex-wrap: wrap;
-    overflow-y: auto;
 }
 </style>
