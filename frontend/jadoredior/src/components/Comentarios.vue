@@ -1,18 +1,12 @@
 <script setup>
-
-const {id_perfume} = defineProps({
-    id_perfume : {
-        type: Number,
-        required : true
-    }
-})
+const { id_perfume } = defineProps({
+  id_perfume: {
+    type: Number,
+    required: true,
+  },
+});
 </script>
 
-<template>
+<template></template>
 
-</template>
-
-<style scoped>
-
-</style>
-
+<style scoped></style>

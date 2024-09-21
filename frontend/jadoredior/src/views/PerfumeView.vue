@@ -11,9 +11,6 @@ import AdicionarComentario from "@/components/AdicionarComentario.vue";
 const perfume_data = ref({});
 const loading = ref(true);
 
-const token =
-  "651e3ff808f4647429050fc747f61622407f8db81b00960dac1d1839b52e1ed6732aaabf9258ea9fecd3f34cb681460418042908300e5fda9fe0749985019256545328de01c20e7ade314181211e78ec77bacb27a861b9a342f020468e1c740a80aac0e6c18ed7e9997e80584c823f3eb60190b5096ae4f06aae927b6adc931e";
-
 const { id } = defineProps({
   id: {
     type: String,
@@ -48,7 +45,7 @@ onBeforeMount(async () => {
       :img_url="perfume_data.attributes.cover.data.attributes.url"
       :descricao="perfume_data.attributes.description"
     />
-    <AdicionarComentario />
+    <AdicionarComentario :perfume-id="perfume_data.id" />
     <Comentarios :id_perfume="perfume_data.id" />
   </main>
   <Rodape />
