@@ -198,7 +198,13 @@ if (route.params.id) {
     </div>
     <div>
       <label for="coverInput">Imagem do Perfume</label> <br>
-      <input
+      <input v-if="id != 0"
+        @change="handleUpload"
+        type="file"
+        id="coverInput"
+        accept="image/*"
+      />
+      <input v-else 
         @change="handleUpload"
         type="file"
         id="coverInput"
