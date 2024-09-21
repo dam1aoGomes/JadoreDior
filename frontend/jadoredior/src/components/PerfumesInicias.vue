@@ -20,7 +20,6 @@ const props = defineProps({
         :nome="perfume.attributes.nome"
         :valor="perfume.attributes.valor"
         :marca="perfume.attributes.marca"
-        :id_perfume="perfume.attributes.id_perfume"
         :img_url="perfume.attributes.cover.data.attributes.url"
       />
     </div>
