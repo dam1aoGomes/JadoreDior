@@ -6,6 +6,7 @@ import { useUpload } from "@/composables/useUpload";
 import { RouterLink, useRoute } from "vue-router";
 import { useUserStore } from "@/stores/user_store";
 import { useRouter } from "vue-router";
+
 const id = ref(0);
 const nome = ref("");
 const marca = ref("");
@@ -138,6 +139,7 @@ if (route.params.id) {
 </script>
 
 <template>
+<div class="cadastrar-perfume">
   <div v-if="loading">Carregando...</div>
 
   <div
@@ -147,64 +149,71 @@ if (route.params.id) {
     {{ feedback }}
   </div>
 
+  <h4>{{ id != 0 ? "Atualizar Perfume" : "Criar Perfume" }}</h4>
+
   <form @submit.prevent="id != 0 ? updatePerfume() : createPerfume()">
     <img v-if="coverURL" :src="useUpload()(coverURL)" alt="Imagem do perfume" />
-
     <div>
-      <label for="coverInput">Imagem do Perfume</label>
+      Nome:
+      <input
+        class="inputs-perfume"
+        v-model="nome"
+        type="text"
+        id="nomeInput"
+        placeholder="Nome do perfume"
+        required
+      />
+    </div>
+    <div>
+      Marca:
+      <input
+        class="inputs-perfume"
+        v-model="marca"
+        type="text"
+        id="marcaInput"
+        placeholder="Marca do perfume"
+        required
+      />
+    </div>
+    <div>
+      Valor:
+      <input
+        class="inputs-perfume"
+        v-model="valor"
+        type="number"
+        id="valorInput"
+        placeholder="Valor do perfume"
+        required
+      />
+    </div>
+    <div>
+      <textarea
+        style="resize: none"
+        class="inputs-perfume"
+        v-model="description"
+        id="descriptionInput"
+        placeholder="Descrição do perfume"
+        required
+      ></textarea>
+    </div>
+    <div>
+      <label for="coverInput">Imagem do Perfume</label> <br>
       <input
         @change="handleUpload"
         type="file"
         id="coverInput"
         accept="image/*"
+        required
       />
     </div>
-
-    <div>
-      <label for="nomeInput">Nome do Perfume</label>
-      <input
-        v-model="nome"
-        type="text"
-        id="nomeInput"
-        placeholder="Nome do perfume"
-      />
-    </div>
-
-    <div>
-      <label for="marcaInput">Marca</label>
-      <input
-        v-model="marca"
-        type="text"
-        id="marcaInput"
-        placeholder="Marca do perfume"
-      />
-    </div>
-
-    <div>
-      <label for="descriptionInput">Descrição</label>
-      <textarea
-        v-model="description"
-        id="descriptionInput"
-        placeholder="Descrição do perfume"
-      ></textarea>
-    </div>
-
-    <div>
-      <label for="valorInput">Valor</label>
-      <input
-        v-model="valor"
-        type="number"
-        id="valorInput"
-        placeholder="Valor do perfume"
-      />
-    </div>
-
-    <RouterLink to="/admin">Cancelar</RouterLink>
-
     <button type="submit">
       {{ id != 0 ? "Atualizar Perfume" : "Criar Perfume" }}
     </button>
+    <RouterLink to="/dashboard"><button>
+      Cancelar
+    </button></RouterLink>
   </form>
+</div>
 </template>
 
 <style>
@@ -213,5 +222,49 @@ if (route.params.id) {
 }
 .error-message {
   color: red;
+}
+.cadastrar-perfume {
+  min-height: 140vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.cadastrar-perfume h4 {
+  margin-bottom: 5vh;
+}
+.cadastrar-perfume .inputs-perfume {
+  border: solid black 1px;
+  padding: 5px;
+  margin: 10px;
+}
+.cadastrar-perfume form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#descriptionInput {
+  width: 600px;
+  height: 200px;
+  box-shadow: 0 0 10px black;
+  border: none;
+  border-radius: 3px;
+}
+.cadastrar-perfume img {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px;
+}
+.cadastrar-perfume button {
+  border: solid black 1px;
+  padding: 5px;
+  width: 200px;
+  margin: 10px;
 }
 </style>
