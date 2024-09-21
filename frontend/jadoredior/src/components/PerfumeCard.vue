@@ -1,22 +1,44 @@
 <script setup lang="js">
-import { BASE_URL } from "@/api";
-import { RouterLink } from 'vue-router'
+import { BASE_URL, api } from "@/api"; // Não se esqueça de importar a API
+import { useUserStore } from "@/stores/user_store";
+import { RouterLink, useRouter } from "vue-router";
+import { ref } from "vue"; // Importar ref
 
 const { id, nome, valor, marca, img_url, showButtons } = defineProps({
-  id : {type: Number, required: true},
-  nome : { type: String, required: true },
+  id: { type: Number, required: true },
+  nome: { type: String, required: true },
   valor: { type: Number, required: true },
   marca: { type: String, default: "" },
   img_url: {
     type: String,
     default:
       "https://lojadior.vtexassets.com/arquivos/ids/196292/3348901639989_02-highlight-jador-parfum-deau.jpg?v=638596672715670000",
-  }, // Adicionar uma imagem padrão
+  },
   showButtons: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
+
+const userStore = useUserStore();
+const loading = ref(false);
+const exception = ref("");
+
+async function deletarPerfume(id) {
+  try {
+    loading.value = true;
+    await api.delete(`/perfumes/${id}`, {
+      headers: {
+        Authorization: `Bearer ${userStore.jwt}`,
+      },
+    });
+    window.location.reload();
+  } catch (e) {
+    exception.value = e.response?.data || "Erro ao deletar perfume";
+  } finally {
+    loading.value = false;
+  }
+}
 </script>
 
 <template>
@@ -33,9 +55,15 @@ const { id, nome, valor, marca, img_url, showButtons } = defineProps({
       </p>
     </div>
     <template v-if="showButtons">
-          <RouterLink :to="'/atualizar-perfume/' + id"><Button id="editar">Editar</Button></RouterLink>
-          <RouterLink :to="'/perfume/' + id"><Button id="deletar">Deletar</Button></RouterLink>
+      <RouterLink :to="'/atualizar-perfume/' + id">
+        <Button id="editar">Editar</Button>
+      </RouterLink>
+      <Button id="deletar" @click="deletarPerfume(id)" :disabled="loading">
+        <span v-if="loading">Deletando...</span>
+        <span v-else> Deletar</span>
+      </Button>
     </template>
+    <div v-if="exception" class="error">{{ exception }}</div>
   </div>
 </template>
 
@@ -62,7 +90,7 @@ const { id, nome, valor, marca, img_url, showButtons } = defineProps({
   font-weight: 200;
   font-style: normal;
 }
-#editar{
+#editar {
   border: solid black 1px;
   padding: 5px;
   margin: 5px;
