@@ -37,17 +37,20 @@ Um site destinado a ser vitrine e loja de perfumes franceses.
 **Frontend:**
 
 Lista as tecnologias, frameworks e bibliotecas utilizados.
-
+- Vue
+- HTML
+- Css
+- Javascript
+- Axios
+- Pinia
 **Backend:**
-
-Lista as tecnologias, frameworks e bibliotecas utilizados.
-
+- Strapi
 ## :shipit: Operações implementadas para cada entidade da aplicação
 
 | Entidade    | Criação | Leitura | Atualização | Remoção |
 | ----------- | ------- | ------- | ----------- | ------- |
 | Usuários    | X       | X       |             | X       |
-| Perfumes    | X       |         | X           | X       |
+| Perfumes    | X       | x       | X           | X       |
 | Comentários | X       | X       |             |         |
 
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
@@ -59,7 +62,17 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 ## :neckbeard: Rotas da API REST utilizadas
 
-| Método HTTP | URL            |
-| ----------- | -------------- |
-| GET         | api/entidade1/ |
-| POST        | api/entidade2  |
+| Método HTTP | URL                  |
+| ----------- | -----------------    |
+| POST        | api/comentarios      |
+| GET         | api/comentarios      |
+| GET         | api/comentarios/:id  |
+| POST        | api/perfumes         |
+| GET         | api/perfumes         |
+| PUT         | api/perfumes/:id     |
+| DELETE      | api/perfumes/:id     |
+| GET         | api/perfumes/:id     |
+| DELETE      | api/upload/files/:id |
+| GET         | api/upload/files/:id |
+| GET         | api/upload/files     |
+| POST        | api/upload/          |
