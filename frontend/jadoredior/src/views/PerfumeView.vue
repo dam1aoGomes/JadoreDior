@@ -26,7 +26,7 @@ onBeforeMount(async () => {
   try {
     const { data } = await api.get(`/perfumes/${props.id}`, {
       params: {
-        populate: "cover,comentarios",
+        populate: "cover",
       },
     });
     perfume_data.value = data.data;
@@ -34,13 +34,10 @@ onBeforeMount(async () => {
     const { data: comentariosData } = await api.get(`/comentarios`, {
       params: {
         "filters[perfume][id][$eq]": perfume_data.value.id,
-        pagination: {
-          page: 0,
-          pageSize: 10,
-        },
       },
     });
     comentarios.value = comentariosData.data;
+    console.log(comentarios.value);
   } catch (error) {
     console.log(error); //Mudar para um fb depois
   } finally {

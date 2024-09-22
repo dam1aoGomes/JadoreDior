@@ -1,6 +1,5 @@
 <script setup>
 import PerfumeCard from "./PerfumeCard.vue";
-import Comentarios from "./Comentarios.vue";
 import AdicionarComentario from "./AdicionarComentario.vue";
 
 import { onBeforeMount, ref } from "vue";
@@ -33,9 +32,9 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-<div class="perfumes">
- <div class="cards">
-  <PerfumeCard
+  <div class="perfumes">
+    <div class="cards">
+      <PerfumeCard
         v-for="perfume in perfumes"
         :id="perfume.id"
         :nome="perfume.attributes.nome"
@@ -43,21 +42,22 @@ onBeforeMount(async () => {
         :marca="perfume.attributes.marca"
         :id_perfume="perfume.attributes.id_perfume"
         :img_url="perfume.attributes.cover.data.attributes.url"
-  />
- </div>
-</div>
+      />
+    </div>
+  </div>
 </template>
 
 <style scoped>
 .perfumes {
-    height: 90vh;
-    width: 100%;
-    overflow-y: auto;
+  height: 90vh;
+  width: 100%;
+  overflow-y: auto;
 }
 .perfumes .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
 }
 </style>
+
