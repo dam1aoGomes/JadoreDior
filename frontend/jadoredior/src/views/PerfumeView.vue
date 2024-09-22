@@ -5,11 +5,14 @@ import { onBeforeMount, ref } from "vue";
 import Perfume from "@/components/Perfume.vue";
 import Cabecalho from "@/components/Cabecalho.vue";
 import Rodape from "@/components/Rodape.vue";
-import Comentarios from "@/components/Comentarios.vue";
 import AdicionarComentario from "@/components/AdicionarComentario.vue";
+import ComentarioCard from "@/components/ComentarioCard.vue";
 
 const perfume_data = ref({});
 const loading = ref(true);
+
+const comentarios = ref([]);
+const loadingComentarios = ref(true);
 
 // Define as props
 const props = defineProps({
@@ -23,14 +26,26 @@ onBeforeMount(async () => {
   try {
     const { data } = await api.get(`/perfumes/${props.id}`, {
       params: {
-        populate: "cover",
+        populate: "cover,comentarios",
       },
     });
     perfume_data.value = data.data;
+
+    const { data: comentariosData } = await api.get(`/comentarios`, {
+      params: {
+        "filters[perfume][id][$eq]": perfume_data.value.id,
+        pagination: {
+          page: 0,
+          pageSize: 10,
+        },
+      },
+    });
+    comentarios.value = comentariosData.data;
   } catch (error) {
-    console.log(error);
+    console.log(error); //Mudar para um fb depois
   } finally {
     loading.value = false;
+    loadingComentarios.value = false;
   }
 });
 </script>
@@ -47,7 +62,6 @@ onBeforeMount(async () => {
       :descricao="perfume_data.attributes.description"
     />
     <AdicionarComentario :perfume-id="perfume_data.id" />
-    <Comentarios :id_perfume="perfume_data.id" />
   </main>
   <Rodape />
 </template>

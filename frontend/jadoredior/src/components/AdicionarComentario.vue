@@ -48,7 +48,8 @@ async function createComment() {
     });
 
     feedback.value = "Comentário adicionado com sucesso.";
-    router.push(`/perfume/${props.perfumeId}`);
+
+    window.location.reload();
   } catch (e) {
     if (isAxiosError(e)) {
       error.value = e.response?.data;
