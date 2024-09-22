@@ -5,34 +5,45 @@ import { onBeforeMount, ref } from "vue";
 import Perfume from "@/components/Perfume.vue";
 import Cabecalho from "@/components/Cabecalho.vue";
 import Rodape from "@/components/Rodape.vue";
-import Comentarios from "@/components/Comentarios.vue";
 import AdicionarComentario from "@/components/AdicionarComentario.vue";
+import ComentarioCard from "@/components/ComentarioCard.vue";
+import { useUserStore } from "@/stores/user_store";
 
 const perfume_data = ref({});
 const loading = ref(true);
 
-const token =
-  "651e3ff808f4647429050fc747f61622407f8db81b00960dac1d1839b52e1ed6732aaabf9258ea9fecd3f34cb681460418042908300e5fda9fe0749985019256545328de01c20e7ade314181211e78ec77bacb27a861b9a342f020468e1c740a80aac0e6c18ed7e9997e80584c823f3eb60190b5096ae4f06aae927b6adc931e";
+const comentarios = ref([]);
+const loadingComentarios = ref(true);
 
-const { id } = defineProps({
+// Define as props
+const props = defineProps({
   id: {
     type: String,
     required: true,
   },
 });
-
+const userStore = useUserStore();
 onBeforeMount(async () => {
   try {
-    const { data } = await api.get(`/perfumes/${id}`, {
+    const { data } = await api.get(`/perfumes/${props.id}`, {
       params: {
         populate: "cover",
       },
     });
     perfume_data.value = data.data;
+
+    const { data: comentariosData } = await api.get(`/comentarios`, {
+      params: {
+        "filters[perfume][id][$eq]": perfume_data.value.id,
+      },
+    });
+    comentarios.value = comentariosData.data;
+    console.log(comentarios.value);
   } catch (error) {
-    console.log(error);
+    console.log(error); //Mudar para um fb depois
   } finally {
     loading.value = false;
+    loadingComentarios.value = false;
   }
 });
 </script>
@@ -48,8 +59,22 @@ onBeforeMount(async () => {
       :img_url="perfume_data.attributes.cover.data.attributes.url"
       :descricao="perfume_data.attributes.description"
     />
-    <AdicionarComentario />
-    <Comentarios :id_perfume="perfume_data.id" />
+    <AdicionarComentario
+      v-if="userStore.isAuthenticated()"
+      :perfume-id="perfume_data.id"
+    />
+    <div class="comentarios-container">
+      <h3>Comentários</h3>
+      <div v-if="loadingComentarios">Carregando comentários...</div>
+      <div v-if="!loadingComentarios && comentarios.length === 0">
+        Nenhum comentário encontrado.
+      </div>
+      <ComentarioCard
+        v-for="comentario in comentarios"
+        :key="comentario.id"
+        :comentario="comentario"
+      />
+    </div>
   </main>
   <Rodape />
 </template>
