@@ -7,6 +7,7 @@ import Cabecalho from "@/components/Cabecalho.vue";
 import Rodape from "@/components/Rodape.vue";
 import AdicionarComentario from "@/components/AdicionarComentario.vue";
 import ComentarioCard from "@/components/ComentarioCard.vue";
+import { useUserStore } from "@/stores/user_store";
 
 const perfume_data = ref({});
 const loading = ref(true);
@@ -21,7 +22,7 @@ const props = defineProps({
     required: true,
   },
 });
-
+const userStore = useUserStore();
 onBeforeMount(async () => {
   try {
     const { data } = await api.get(`/perfumes/${props.id}`, {
@@ -58,7 +59,22 @@ onBeforeMount(async () => {
       :img_url="perfume_data.attributes.cover.data.attributes.url"
       :descricao="perfume_data.attributes.description"
     />
-    <AdicionarComentario :perfume-id="perfume_data.id" />
+    <AdicionarComentario
+      v-if="userStore.isAuthenticated()"
+      :perfume-id="perfume_data.id"
+    />
+    <div class="comentarios-container">
+      <h3>Comentários</h3>
+      <div v-if="loadingComentarios">Carregando comentários...</div>
+      <div v-if="!loadingComentarios && comentarios.length === 0">
+        Nenhum comentário encontrado.
+      </div>
+      <ComentarioCard
+        v-for="comentario in comentarios"
+        :key="comentario.id"
+        :comentario="comentario"
+      />
+    </div>
   </main>
   <Rodape />
 </template>
