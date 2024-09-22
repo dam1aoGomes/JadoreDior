@@ -11,7 +11,8 @@ import AdicionarComentario from "@/components/AdicionarComentario.vue";
 const perfume_data = ref({});
 const loading = ref(true);
 
-const { id } = defineProps({
+// Define as props
+const props = defineProps({
   id: {
     type: String,
     required: true,
@@ -20,7 +21,7 @@ const { id } = defineProps({
 
 onBeforeMount(async () => {
   try {
-    const { data } = await api.get(`/perfumes/${id}`, {
+    const { data } = await api.get(`/perfumes/${props.id}`, {
       params: {
         populate: "cover",
       },

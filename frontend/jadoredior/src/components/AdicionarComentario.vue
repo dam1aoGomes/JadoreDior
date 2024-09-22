@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import { isAxiosError } from "axios";
 import { api } from "@/api";
-import { useRoute } from "vue-router";
 import { useUserStore } from "@/stores/user_store";
 import { useRouter } from "vue-router";
 
@@ -22,7 +21,6 @@ const error = ref(null);
 const router = useRouter();
 const userStore = useUserStore();
 
-const username = () => user.username;
 async function createComment() {
   feedback.value = "";
   error.value = null;
@@ -36,12 +34,14 @@ async function createComment() {
     }
 
     const commentData = {
-      comentario: comentario.value,
-      perfume: props.perfumeId,
-      author: userStore.username(),
+      data: {
+        comentario: comentario.value,
+        perfume: props.perfumeId,
+        author: userStore.username(),
+      },
     };
 
-    const { data } = await api.post("/comentarios", commentData, {
+    await api.post("/comentarios", commentData, {
       headers: {
         Authorization: `Bearer ${userStore.jwt}`,
       },
@@ -93,4 +93,26 @@ async function createComment() {
     </form>
   </div>
 </template>
-<style scoped></style>
+
+<style scoped>
+.inputs-comentario {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.error-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+</style>
