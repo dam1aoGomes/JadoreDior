@@ -43,6 +43,7 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 - Javascript
 - Axios
 - Pinia
+ 
 **Backend:**
 - Strapi
 ## :shipit: Operações implementadas para cada entidade da aplicação
