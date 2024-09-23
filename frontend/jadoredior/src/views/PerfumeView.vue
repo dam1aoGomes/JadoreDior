@@ -65,8 +65,8 @@ onBeforeMount(async () => {
     />
     <div class="comentarios-container">
       <h3>Comentários</h3>
-      <div v-if="loadingComentarios">Carregando comentários...</div>
-      <div v-if="!loadingComentarios && comentarios.length === 0">
+      <div v-if="loadingComentarios" class="feedBack">Carregando comentários...</div>
+      <div v-if="!loadingComentarios && comentarios.length === 0" class="feedBack">
         Nenhum comentário encontrado.
       </div>
       <ComentarioCard
@@ -78,3 +78,30 @@ onBeforeMount(async () => {
   </main>
   <Rodape />
 </template>
+
+<style scoped>
+/*
+  Esse css, não deveria estar aqui, porém não tem aonde
+  colocar, pois eu precisario encapsular o <ComentarioCard />
+  em algum lugar. Paz do Senhor Irmão.
+*/
+.comentarios-container {
+  margin-top: 10vh;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: scroll;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+.comentarios-container h3 {
+  margin-left: 20vh;
+}
+
+.comentarios-container .feedBack {
+  margin-left: 20vh;
+}
+</style>

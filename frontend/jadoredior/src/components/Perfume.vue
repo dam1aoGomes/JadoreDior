@@ -91,6 +91,7 @@ const { id, nome, valor, marca, img_url } = defineProps({
   box-shadow: 0 0 5px;
   border-radius: 5px;
   padding: 10px;
+  margin-top: 10px;
 }
 </style>
 

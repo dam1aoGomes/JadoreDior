@@ -65,7 +65,7 @@ async function createComment() {
 
 <template>
   <div class="cadastrar-comentario">
-    <div v-if="loading">Carregando...</div>
+    <div v-if="loading" class="carregando" >Carregando...</div>
 
     <div
       v-if="feedback"
@@ -74,46 +74,89 @@ async function createComment() {
       {{ feedback }}
     </div>
 
-    <h4>Adicionar Comentário</h4>
+    <h4>Ei {{ userStore.username()}}! Adicione um comentario:</h4>
 
     <form @submit.prevent="createComment">
       <div>
         <textarea
+          rows="5" cols="33"
           style="resize: none"
           class="inputs-comentario"
           v-model="comentario"
           id="comentarioInput"
-          placeholder="Adicione o seu comentário"
+          placeholder="Precisamos da sua opnião"
           required
         ></textarea>
       </div>
       <button type="submit" :disabled="loading">Adicionar Comentário</button>
       <RouterLink :to="`/perfume/${props.perfumeId}`">
-        <button type="button">Cancelar</button>
+        <button type="button" id="cancelar">Cancelar</button>
       </RouterLink>
     </form>
   </div>
 </template>
 
 <style scoped>
-.inputs-comentario {
+.cadastrar-comentario {
   width: 100%;
-  height: 100px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cadastrar-comentario h4 {
+  margin-left: 20vh;
+}
+
+.cadastrar-comentario form {
+  width: 100%;
+}
+
+.cadastrar-comentario .carregando {
+  margin-left: 20vh;  
+}
+
+.inputs-comentario {
+  width: 70%;
+  height: 50px;
+  padding: 5px;
+  border: none;
+  border-bottom: solid black 1px;
   margin-bottom: 10px;
+  margin-left: 20vh;
+  line-height: 1.5;
 }
 
 button {
-  margin-right: 10px;
+  margin-left: 20vh;
+  border: solid black 1px;
+  padding: 5px;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+  border: solid white 1px;
+}
+
+#cancelar:hover {
+  border: solid white 1px;
+  color: white;
+  background-color: red;
 }
 
 .error-message {
   color: red;
+  margin-left: 20vh;
 }
 
 .success-message {
   color: green;
+  margin-left: 20vh;
 }
 </style>

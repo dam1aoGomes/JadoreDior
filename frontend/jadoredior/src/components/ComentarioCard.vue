@@ -32,11 +32,16 @@ function formatDate(dateString) {
 
 <style scoped>
 .comentario-card {
-  border: 1px solid #ccc;
+  width: 50vw;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #f9f9f9;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-left: 10%; 
 }
 
 .comentario-author {
