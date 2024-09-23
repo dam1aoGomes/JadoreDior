@@ -50,7 +50,7 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 | Entidade    | Criação | Leitura | Atualização | Remoção |
 | ----------- | ------- | ------- | ----------- | ------- |
-| Usuários    | X       | X       |             | X       |
+| Usuários    | X       | X       |             |         |
 | Perfumes    | X       | x       | X           | X       |
 | Comentários | X       | X       |             |         |
 
@@ -63,20 +63,20 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 ## :neckbeard: Rotas da API REST utilizadas
 
-| Método HTTP | URL                         |
-| ----------- | ----------------------------|
-| POST        | api/comentarios             |
-| GET         | api/comentarios             |
-| GET         | api/comentarios/:id         |
-| POST        | api/perfumes                |
-| GET         | api/perfumes                |
-| PUT         | api/perfumes/:id            |
-| DELETE      | api/perfumes/:id            |
-| GET         | api/perfumes/:id            |
-| DELETE      | api/upload/files/:id        |
-| GET         | api/upload/files/:id        |
-| GET         | api/upload/files            |
-| POST        | api/upload/                 |
-| GET         | api/users-permissions/roles |
-| GET        | api/users-permissions/roles/:id    |
-| GET        | api/users/me                 |
+| Método HTTP | URL                                |
+| ----------- | -----------------------------------|
+| POST        | api/comentarios                    |
+| GET         | api/comentarios                    |
+| GET         | api/comentarios/:id                |
+| POST        | api/perfumes                       |
+| GET         | api/perfumes                       |
+| PUT         | api/perfumes/:id                   |
+| DELETE      | api/perfumes/:id                   |
+| GET         | api/perfumes/:id                   |
+| DELETE      | api/upload/files/:id               |
+| GET         | api/upload/files/:id               |
+| GET         | api/upload/files                   |
+| POST        | api/upload/                        |
+| GET         | api/users-permissions/roles        |
+| GET         | api/users-permissions/roles/:id    |
+| GET         | api/users/me                       |
