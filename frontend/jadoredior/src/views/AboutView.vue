@@ -1,7 +1,13 @@
+<script setup>
+import Cabecalho from '@/components/Cabecalho.vue';
+import Rodape from '@/components/Rodape.vue';
+import About from '@/components/About.vue';
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<Cabecalho />
+<About />
+<Rodape />
 </template>
 
 <style scoped>
