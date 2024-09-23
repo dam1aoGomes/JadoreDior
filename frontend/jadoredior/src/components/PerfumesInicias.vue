@@ -1,13 +1,25 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-
 import PerfumeCard from "./PerfumeCard.vue";
-const props = defineProps({
+import { ref, onMounted, onBeforeUpdate } from 'vue';
+
+const {perfumes} = defineProps({
   perfumes: {
     type: Array,
     required: true,
-  },
+  }, 
 });
+
+const five_elements = ref([])
+
+onBeforeUpdate(()=>{
+  for(let i = 0; perfumes.length; i++) {
+  five_elements.value.push(perfumes[i]);
+  if(i >= 4) {
+    break;
+  }
+} 
+})
 </script>
 
 <template>
@@ -15,7 +27,7 @@ const props = defineProps({
     <h4>Perfumes em destaque</h4>
     <div class="cards">
       <PerfumeCard
-        v-for="perfume in perfumes"
+        v-for="perfume in five_elements"
         :id="perfume.id"
         :nome="perfume.attributes.nome"
         :valor="perfume.attributes.valor"

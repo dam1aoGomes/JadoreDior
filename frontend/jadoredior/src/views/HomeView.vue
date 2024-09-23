@@ -3,11 +3,12 @@ import Cabecalho from "@/components/Cabecalho.vue";
 import Destaque from "@/components/Destaque.vue";
 import Rodape from "@/components/Rodape.vue";
 import PerfumesInicias from "@/components/PerfumesInicias.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, onBeforeMount, ref } from "vue";
 import { api } from "@/api";
 
 const perfumes = ref([]);
 const loading = ref(true);
+
 onMounted(async () => {
   try {
     const { data } = await api.get("/perfumes", {

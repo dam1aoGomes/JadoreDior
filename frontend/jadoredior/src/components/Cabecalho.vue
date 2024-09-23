@@ -13,15 +13,6 @@ const role = computed(() => userStore.role());
   <nav>
     <div id="home-link"><RouterLink to="/">j'adoreDior</RouterLink></div>
 
-    <form action="">
-      <input
-        type="text"
-        name="pesquisa-perfume"
-        id="inp-perfume"
-        placeholder="Encontre seu perfume"
-      />
-    </form>
-
     <div id="minha-conta-link">
       <template v-if="isAuthenticated">
         <span class="text-black"> <svg
